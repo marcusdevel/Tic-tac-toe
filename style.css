@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: #e7e7e7;
+    font-size: 30px;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+  }
+  .cubs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 3px solid lightyellow;
+    margin-top: 10px;
+   
+  }
+  
+  .cubs button {
+    border: 3px solid black;
+    width: 100px;
+    height: 100px;
+    margin: 2px;
+    font-size: 40px;
+    cursor: pointer;
+    background-color: white;
+  }
+  
+  .cubs button:hover {
+    background-color: lightyellow;
+  }
+  
+  .nextplayer {
+    background-color: cyan;
+  }
+  
+  
