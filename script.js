@@ -33,3 +33,18 @@ function startGame() {
 }
 
 startGame();
+
+function nextMove(e) {
+  let value = e.target.getAttribute("data-i");
+  e.target.innerHTML = Player;
+  e.target.removeEventListener("click", nextMove);
+  Choice[value] = Player;
+
+  setTimeout(() => {
+    check();
+  }, 100);
+
+  Player = Player === "X" ? "O" : "X";
+
+  Nextplayer.innerHTML = `Jogador: ${Player}`;
+}
