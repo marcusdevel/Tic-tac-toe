@@ -15,7 +15,6 @@ let WinsX = parseInt(localStorage.getItem("WinsX")) || 0;
 
 let LossesX = parseInt(localStorage.getItem("LossesX")) || 0;
 
-
 let WinsO = parseInt(localStorage.getItem("WinsO")) || 0;
 
 let LossesO = parseInt(localStorage.getItem("LossesO")) || 0;
@@ -47,4 +46,38 @@ function nextMove(e) {
   Player = Player === "X" ? "O" : "X";
 
   Nextplayer.innerHTML = `Jogador: ${Player}`;
+}
+function check() {
+  let playermove = Player === "X" ? "O" : "X";
+  const items = Choice.map((item, i) => [item, i])
+    .filter((item) => item[0] === playermove)
+    .map((item) => item[1]);
+
+  for (pos of Positions) {
+    if (pos.every((item) => items.includes(item))) {
+      alert(`${playermove} venceu`);
+      if (playermove === "X") {
+        WinsX++;
+        localStorage.setItem("WinsX", WinsX);
+        LossesO++;
+        localStorage.setItem("LossesO", LossesO);
+      } else {
+        WinsO++;
+        localStorage.setItem("WinsO", WinsO);
+        LossesX++;
+        localStorage.setItem("LossesX", LossesX);
+      }
+
+      updateStatsX();
+      updateStatsO();
+      startGame();
+      return;
+    }
+  }
+
+  if (Choice.filter((item) => item).length === 9) {
+    alert("Empate");
+
+    startGame();
+  }
 }
