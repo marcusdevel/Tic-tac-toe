@@ -81,3 +81,9 @@ function check() {
     startGame();
   }
 }
+function updateStatsX() {
+  console.log(`X tem: ${WinsX} vitórias e ${LossesX} derrotas`);
+}
+function updateStatsO() {
+  console.log(`O tem: ${WinsO} vitórias e ${LossesO} derrotas`);
+}
