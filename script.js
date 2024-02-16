@@ -22,3 +22,14 @@ let LossesO = parseInt(localStorage.getItem("LossesO")) || 0;
 
 let Nextplayer = document.querySelector(".nextplayer");
 
+function startGame() {
+  Choice = [];
+
+  Nextplayer.innerHTML = `Jogador: ${Player}`;
+  document.querySelectorAll(".cubs button").forEach((item) => {
+    item.innerHTML = "";
+    item.addEventListener("click", nextMove);
+  });
+}
+
+startGame();
